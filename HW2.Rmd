@@ -1,7 +1,7 @@
 ---
 title: "Homework 2: Data Visualization and Data Transformation"
 author: "Put Your Name Here"
-date: "Due January 28, 2021"
+date: "Due January 31, 2023"
 output: 
   github_document: 
     fig_height: 4
@@ -14,11 +14,11 @@ output:
 # Don't change this setup chunk. 
 # It sets global defaults and includes the tidyverse packages
 # The option include = FALSE prevents warnings and messages from printing to your report.
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-**Important:** Use this document as a template for writing up your assignment. Remove the `eval=FALSE` option on line 18 so that your chunks will be executed when you knit this file. For multi-part questions, write your code as R chunks immediately below the corresponding part of the question. For this assignment, empty chunks have been provided.
+**Important:** Use this document as a template for writing up your assignment. For multi-part questions, write your code as R chunks immediately below the corresponding part of the question. For this assignment, empty chunks have been provided.
 
 
 # Question 1  
