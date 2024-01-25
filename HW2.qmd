@@ -1,0 +1,221 @@
+---
+title: "Math 265: Homework 2"
+author: "Your Name"
+date: today
+format: 
+    gfm: 
+      toc: true
+      toc-depth: 2
+      fig-height: 4
+      fig-width: 9
+editor: visual
+execute: 
+  echo: true
+  warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(ggthemes)
+```
+
+**Important:** Use this document as a template for writing up your assignment. For multi-part questions, write your code as R chunks immediately below the corresponding part of the question. For this assignment, empty chunks have been provided.
+
+# Question 1
+
+1.  **Regression to the Mean**
+
+The phenomenon known as "regression to the mean" was first identified by Sir Francis Galton in the late 19th century. The `Galton` data set from the `mosaicData` package contains Galton's famous data. Use the `?Galton` command to get help about the data set after you have run the chunk below to load the package `mosaicData`.
+
+Create a single scatterplot of each person's `height` (y) against their father's height (x) with the following characteristics:
+
+-   Separate your plot into facets by `sex` assigned at birth.
+
+-   Add a linear best fit line to all of your facets, turning off the standard error shading.
+
+-   As an alternative to `geom_point()`, consider `geom_jitter()`. Can you see my it might be preferred here? We'll learn more about this function as we get further into visualiation.
+
+-   Make the points only half their normal size.
+
+-   Add a descriptive title to your plot and labels for the axes.
+
+**Answer:**
+
+```{r}
+library(mosaicData)
+glimpse(Galton)
+# solution goes here
+
+```
+
+# Question 2
+
+2.  **Baby Name Trends**
+
+The R library `babynames` provides information on the historical incidence of baby names in the U.S. since 1880 as provided by the Social Security Administration. Load the `babynames` library and study the help information (hint: use `?babynames`). This question will require both data transformation and plotting skills. (Note: `babynames` has almost 2 million observations so don't print it!) Issues of interest here are whether popular names have changed over time and whether unisex and gender-neutral names are more common in recent years.
+
+Complete the following. (**Hint**: You may need to review cheat sheets or other resources to find the commands you'll need here. )
+
+a.  Identify the top 10 names given to males in 2017 and the top 10 names given to females in 2017. (By "male" and "female" here and throughout, we refer to sex assigned at birth.)
+
+**Answer:**
+
+```{r}
+library(babynames)
+glimpse(babynames)
+# solution goes here
+
+```
+
+b.  Using **`ggplot()`**, generate two plots with the following. As always, put a title on each plot:
+
+-   Plot 1: A line plot of the reported proportion of babies born with each of the top 10 female names. Your plot should start with the year 1900 and should have different colors for each name.
+
+-   Plot 2: A line plot of the reported proportion of babies born with each of the top 10 male names. Your plot should start with the year 1900 and should have different colors for each name.
+
+Hint: Look at `?geom_line()` for a useful function here.
+
+**Answer:**
+
+```{r}
+
+```
+
+c.  Now introduce faceting by name so that you have 2 sets of 10 plots, one for each name.
+
+**Answer:**
+
+```{r}
+
+```
+
+d.  Write a few observations including identifying the names that were popular in the past as well as those that are newly popular.
+
+**Answer:**
+
+# Question 3
+
+3.  **Baby Name Trends (cont'd)**
+
+Use the **babynames** data to create two versions of the chart shown in the figure below: one as shown for Females and another for Males. Be sure to also write a couple sentences commenting on what can be seen about name trends from these two plots. (Hint: (1) This is an important chance to learn about the difference between `year` and `factor(year)`; (2) This is a good chance to either learn about the `weight` aesthetic of `geom_bar()`.)
+
+![Bar chart](figs/names_chart.png) **Answer:**
+
+```{r}
+library(babynames)
+# solution goes here
+
+```
+
+# Question 4
+
+4.  **Fuel Economy Data**
+
+According to the help pages, the vehicles data in the **fueleconomy** package contains "fuel economy data from the EPA, 1985-2015. This dataset contains selected variables, and removes vehicles with incomplete data (e.g. no drive train data)."
+
+The `cardata` tibble created in the chunk below restricts this dataset to more common vehicles that were made in at least 10 years. To find out more about the variables in this dataset, use `?vehicles` and/or `?common`.
+
+```{r}
+library(fueleconomy)
+cardata <- left_join(common, vehicles)
+glimpse(cardata)
+```
+
+Use separate `filter()` commands to find all vehicles in `cardata` that:
+
+a.  Get between 40 and 50 mpg (inclusive) on the highway.
+
+**Answer:**
+
+```{r}
+
+```
+
+b.  Are made by either Chevrolet or Ford and were made after the year 2000.
+
+**Answer:**
+
+```{r}
+
+```
+
+c.  Were made in a year that is a multiple of 5 (don't list all such years) and have Manual transmission. (Hint: This is a great opportunity to learn about the `str_detect()` function that is part of the Tidyverse. Do NOT use a version of the `grep` command that you might come across if you do a web search.)
+
+**Answer:**
+
+```{r}
+
+```
+
+d.  Had lower highway mileage than city mileage. Do these vehicles have anything else in common?
+
+**Answer:**
+
+```{r}
+
+```
+
+e.  Were missing data for drivetrain.
+
+**Answer:**
+
+```{r}
+
+```
+
+# Question 5
+
+5.  **National Health and Nutrition Examination Data (NHANES)**
+
+The US National Center for Health Statistics (NCHS) has conducted a series of health and nutrition surveys since the early 1960's. Since 1999 approximately 5,000 individuals of all ages are interviewed in their homes every year and complete the health examination component of the survey. Data from two survey years is contained in the `NHANES` data set provided with the **NHANES** package.
+
+**Note: The \*\*NHANES\* library provides two data sets: `NHANES` and `NHANESraw`. Be sure to use just the `NHANESraw` data set for this problem.**
+
+Use the `NHANESraw` data set to carry out the following separately. The following chunk loads the data and provides an initial look at the variables.
+
+```{r}
+library(NHANES)
+glimpse(NHANES)
+```
+
+a.  Use `select()` to reorganize the columns as follows: the first 5 variables, followed by all the blood pressure measurements, and then all the other variables.
+
+**Answer:**
+
+```{r}
+
+```
+
+b.  Create three new variables: ratio of systolic to diastolic blood pressure (using the average BP measures), height in inches and weight in pounds.
+
+**Answer:**
+
+```{r}
+
+```
+
+c.  Use the `select()` helper functions to select only variables dealing with alcohol or marijuana.
+
+**Answer:**
+
+```{r}
+
+```
+
+d.  Use the `select()` helper functions to select only variables containing `Sex` or `Gender` in the name.
+
+**Answer:**
+
+```{r}
+
+```
+
+e.  Include only the cases in the most recent survey year and sort them in descending order by height in inches. How tall were the tallest three individuals?
+
+**Answer:**
+
+```{r}
+
+```
